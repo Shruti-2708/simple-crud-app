@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management - CRUD Application</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 Student Management System</h1>
+                <p class="subtitle">Simple CRUD Application</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Form Section -->
+            <section class="form-section">
+                <div class="form-container">
+                    <h2>
+                        <span id="formTitle">Add New Student</span>
+                    </h2>
+                    
+                    <form id="studentForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                placeholder="Enter student name" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="Enter email address" 
+                                required
+                            >
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="roll">Roll Number *</label>
+                                <input 
+                                    type="text" 
+                                    id="roll" 
+                                    placeholder="e.g., 001" 
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="course">Course *</label>
+                                <select id="course" required>
+                                    <option value="">Select Course</option>
+                                    <option value="B.Tech">B.Tech</option>
+                                    <option value="BCA">BCA</option>
+                                    <option value="B.Sc">B.Sc</option>
+                                    <option value="M.Tech">M.Tech</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <button type="submit" id="submitBtn" class="btn btn-primary">
+                                ➕ Add Student
+                            </button>
+                            <button type="reset" class="btn btn-secondary" id="resetBtn">
+                                🔄 Clear
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Students List Section -->
+            <section class="list-section">
+                <div class="list-header">
+                    <h2>Student Records</h2>
+                    <div class="list-controls">
+                        <input 
+                            type="text" 
+                            id="searchBox" 
+                            class="search-input" 
+                            placeholder="🔍 Search by name or email..."
+                        >
+                        <span id="studentCount" class="student-count">0 students</span>
+                    </div>
+                </div>
+
+                <div id="messageContainer"></div>
+
+                <!-- Table View for Desktop -->
+                <div class="table-responsive">
+                    <table id="studentsTable" class="students-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Roll</th>
+                                <th>Course</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsList">
+                            <tr class="empty-row">
+                                <td colspan="6">No students found. Add one to get started!</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Card View for Mobile -->
+                <div id="studentsCards" class="students-cards"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Edit -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Student</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                
+                <div class="form-group">
+                    <label for="editName">Full Name *</label>
+                    <input type="text" id="editName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="editEmail">Email *</label>
+                    <input type="email" id="editEmail" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editRoll">Roll Number *</label>
+                        <input type="text" id="editRoll" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="editCourse">Course *</label>
+                        <select id="editCourse" required>
+                            <option value="B.Tech">B.Tech</option>
+                            <option value="BCA">BCA</option>
+                            <option value="B.Sc">B.Sc</option>
+                            <option value="M.Tech">M.Tech</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                    <button type="button" class="btn btn-secondary" id="closeModal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div id="deleteModal" class="modal">
+        <div class="modal-content modal-small">
+            <div class="modal-header">
+                <h2>Confirm Delete</h2>
+                <span class="close">&times;</span>
+            </div>
+            <p>Are you sure you want to delete this student? This action cannot be undone.</p>
+            <div class="button-group">
+                <button id="confirmDeleteBtn" class="btn btn-danger">🗑️ Delete</button>
+                <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
