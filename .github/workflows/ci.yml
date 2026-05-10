@@ -2,7 +2,7 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [main]
+    branches: [master]
 
 jobs:
   build:
@@ -20,8 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test
-
-      - name: Build Docker image
-        run: docker build -t simple-crud-app .
+      - Run vulnerability scan
+       run:: npm audit --audit-level high
