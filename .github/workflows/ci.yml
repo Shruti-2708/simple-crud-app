@@ -20,5 +20,5 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - Run vulnerability scan
-       run: "npm audit --audit-level=high"
+      - name: Run vulnerability scan
+        run: npm audit --audit-level=high
