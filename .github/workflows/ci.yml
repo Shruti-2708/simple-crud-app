@@ -21,4 +21,4 @@ jobs:
         run: npm install
 
       - Run vulnerability scan
-       run:: npm audit --audit-level high
+       run: npm audit --audit-level high
