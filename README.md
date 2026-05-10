@@ -1,21 +1,33 @@
-# Simple CRUD App - CI/CD Pipeline
+# Simple CRUD App – DevSecOps Implementation
 
-## About
-Student CRUD application built with Node.js and Express, containerized with Docker and automated with GitHub Actions CI/CD pipeline.
+A Node.js CRUD application with integrated DevSecOps practices including automated vulnerability scanning via GitHub Actions CI/CD pipeline.
 
-## CI/CD Execution
-![CI Pipeline](screenshots/ci-pipeline.png)
-![CI Success](screenshots/ci-success.png)
+---
 
-## Tech Stack
-- Node.js + Express
-- Docker
-- GitHub Actions
+## 🔐 DevSecOps Workflow
 
-## How to Run
+
+---
+
+## 📋 Assignment Parts Completed
+
+| Part | Task | Status |
+|------|------|--------|
+| Part 1 | Vulnerability Identification (npm audit) | ✅ Done |
+| Part 2 | Vulnerability Remediation (npm audit fix) | ✅ Done |
+| Part 3 | CI/CD Security Integration (GitHub Actions) | ✅ Done |
+| Part 4 | Pipeline Enforcement & Recovery | ✅ Done |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Node.js v18+
+- npm
+
+### Installation
+```bash
+git clone https://github.com/Shruti-2708/Simple-Crud-App.git
+cd Simple-Crud-App
 npm install
-npm start
-
-## Docker
-docker build -t simple-crud-app .
-docker run -p 3000:3000 simple-crud-app
